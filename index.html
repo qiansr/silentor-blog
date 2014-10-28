@@ -61,5 +61,40 @@
 
 <!-- code highlight-->
 <script src="vendor/highlight/highlight.pack.js"></script>
-
+<script src="js/WeixinApi.js"></script>
+<script>
+	WeixinApi.ready(function(Api) {
+		        var wxData = {
+		            //"appId": "",
+		            //"imgUrl" : 'http://1.wyubozhi.sinaapp.com/favicon64x64.ico',
+		            //"link" : 'http://wyubozhi.sinaapp.com',
+		            //"desc" : '博智平台,优秀的资讯平台(微信号wyubozhi)',
+		            //"title" : "博智平台"
+		        };
+		        var wxCallbacks = {
+		            ready : function() {
+						wxData.title=$("title").html();
+						wxData.desc=$("title").html();
+						var href=window.location.href;
+						if(typeof $opid!="undefined"){
+							href=href.replace("opid="+$opid,"");
+						}
+						wxData.link=href;
+		            },
+		            cancel : function(resp) {
+						alert("你无情地取消了分享");
+		            },
+		            fail : function(resp) {
+		            },
+		            confirm : function(resp) {
+						alert("赠人玫瑰手有余香");
+		            },
+		            all : function(resp,argv) {
+		            }
+		        };
+		        Api.shareToFriend(wxData, wxCallbacks);
+		        Api.shareToTimeline(wxData, wxCallbacks);
+		        Api.shareToWeibo(wxData, wxCallbacks);
+		    });
+</script>
 </html>
