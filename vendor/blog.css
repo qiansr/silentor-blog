@@ -84,7 +84,7 @@ blockquote {
     color: #999;
 }
 .main-inner {
-    padding: 2% 5% 6%;
+    padding: 2% 5% 3%;
 }
 .main-page {
     padding-bottom: 3%;
@@ -93,6 +93,11 @@ blockquote {
     position: absolute;
     top: -9999px;
     left: -9999px;
+}
+.main-page-footer {
+    text-align:  center;
+    padding-top: 6%;
+    padding-bottom:1px;
 }
 @media (max-width: 480px){
   .sidebar-inner li {
