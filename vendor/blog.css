@@ -83,6 +83,9 @@ blockquote {
 .sidebar blockquote {
     color: #999;
 }
+.sidebar img {
+    margin-left: 20%
+}
 .main-inner {
     padding: 2% 5% 3%;
 }
