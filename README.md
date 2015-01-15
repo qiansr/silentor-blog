@@ -128,9 +128,9 @@ function init() {
 ### 大小写
 github是有大小写敏感，大家一般遵循都小写的原则
 
-### footer.md
+### 全局的底部信息-footer 
 
-我们知道有sidebar（侧栏）,main page(主页),可是有时候我们需要一个网站底部一些关于信息 ，这个footer.md就是干这事情，建议在p/目录下建立footer.md 文件来添加底部信息
+我们知道有sidebar（侧栏）,main page(主页),可是有时候我们需要一个网站底部一些关于信息 ，这个`footer.md`就是干这事情，建议在p/目录下建立footer.md 文件来添加底部信息
 
 
 License
