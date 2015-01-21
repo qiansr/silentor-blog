@@ -135,6 +135,7 @@ github是有大小写敏感，大家一般遵循都小写的原则
 
 License
 ===
+    Copyright 2014 Jayin Ton
     Copyright 2014 Meizhuo Lib
 
     Licensed under the Apache License, Version 2.0 (the "License");
