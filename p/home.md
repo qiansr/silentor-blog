@@ -118,13 +118,6 @@ function init() {
 }
 ```
 
-### 导航栏动画
-//注释掉下面的可以删除该动画
-```html
-<!-- 可选的动画 -->
-<script src="vendor/anim.js"></script>
-```
-
 ### 大小写
 github是有大小写敏感，大家一般遵循都小写的原则
 
