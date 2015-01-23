@@ -77,7 +77,12 @@
             }
             //sidebar-avatar
             if (isSidebar){
+                //round avatar
                 $(selector).find('img').first().addClass('avatar');
+                //add animation in item
+                $.each($(selector).find('li'),function(index,item){
+                     $(item).addClass('sidebar-item');
+                });
             }
 
         }).fail(function(err) {
