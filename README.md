@@ -48,6 +48,18 @@ see [Demo](http://meizhuo.github.io/silentor/)
 ![图片说明](./img/xxx.jpg)
 ```
 
+#### 文章的图片位置问题
+
+默认是：图片居中，如果想图片居左：preview
+```markdown
+![图片说明|left](./img/xxx.jpg)
+```
+
+居右
+```markdown
+![图片说明|right](./img/xxx.jpg)
+```
+
 ### 根目录下的404.md就是找不页面时显示的内容
 若有需要，可以改写里面的内容
 

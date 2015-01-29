@@ -70,12 +70,25 @@
                     $element.attr('href', '?' + getPageBase(cur_md_path) + url);
                 }
             });
-            //title
+            //main-page
             if (!isSidebar) {
+                //change title
                 var mainTitle = $('#main-page').find('h1, h2, h3, h4, h5, h6').first().text();
                 $('title').text(mainTitle);
+
+                //图片位置
+                $.each($(selector).find('img'),function(index,item){
+                    var alt = $(item).attr('alt') || '';
+                    if(alt.indexOf('|left') != -1){
+                        $(item).addClass('img-left');
+                    }else if(alt.indexOf('|right') != -1){
+                        $(item).addClass('img-right');
+                    }else{
+                        $(item).addClass('img-center');
+                    }
+                });
             }
-            //sidebar-avatar
+            //sidebar
             if (isSidebar){
                 //round avatar
                 $(selector).find('img').first().addClass('avatar');
