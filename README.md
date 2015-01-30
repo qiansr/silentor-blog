@@ -58,6 +58,25 @@ see [Demo](http://meizhuo.github.io/silentor/)
 ![图片说明|right](./img/xxx.jpg)
 ```
 
+### 在本文中引用其他目录的文章
+
+详情:参考这个[issue#1](https://github.com/Jayin/silentor/issues/1)
+
+例子:  
+```markdown
+
+//引用当前目录下的other.md
+[其他目录文章标题](other.md)    //推荐
+[其他目录文章标题](./other.md)
+
+//引用上一级目录App目录下的other.md PS:不支持多次上级操作
+[其他目录文章标题](../App/other.md)
+
+//引用任意目录下other.md 
+[其他目录文章标题](__ROOT__/path/to/file/other.md) //推荐
+
+```
+
 开发指南
 ===
 
