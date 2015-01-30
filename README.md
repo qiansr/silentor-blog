@@ -15,8 +15,9 @@ Features
 * 支持语法高亮
 * 友好的移动端支持
 
-使用
-===
+使用指南
+======= 
+
 ### 第一步：配置根目录的config.json
 ```json
 {
@@ -37,9 +38,6 @@ git push origin gh-pages
 
 see [Demo](http://meizhuo.github.io/silentor/)
 
-开发指南
-===
-
 ### 设置图片
 我们约定在根目录下的img/下放置所有图片文件
 
@@ -59,6 +57,9 @@ see [Demo](http://meizhuo.github.io/silentor/)
 ```markdown
 ![图片说明|right](./img/xxx.jpg)
 ```
+
+开发指南
+===
 
 ### 根目录下的404.md就是找不页面时显示的内容
 若有需要，可以改写里面的内容
