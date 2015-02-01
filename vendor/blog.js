@@ -41,9 +41,6 @@
 
         p_url = baseUrl + file_path;
 
-        console.log("load-->" + p_url);
-        console.log(blog_base);
-        console.log(app_name);
         $.get(p_url, function(data) {
             marked.setOptions({
                 highlight: function(code) {
@@ -117,17 +114,15 @@
                 });
             }
             //处理图片链接
-            $.each(_selector.find('img'),function(index,item){
+            $.each(_selector.find('img'), function(index, item) {
                 $e = $(item);
-                if($e.attr('src').indexOf('__IMG__') == 0){
-                    $e.attr('src', $e.attr('src').replace('__IMG__',img_root));
+                if ($e.attr('src').indexOf('__IMG__') == 0) {
+                    $e.attr('src', $e.attr('src').replace('__IMG__', img_root));
                 }
             });
 
         }).fail(function(err) {
             if (err.status === 404) {
-                console.log('404-->' + '/' + app_name + '/');
-                console.log($._c);
                 if (file_path === 'footer.md') {
                     console.log('没有找到footer.md! 建议在p/目录下建立footer.md 文件来添加底部信息！');
                     return;
@@ -137,16 +132,12 @@
         });
     }
 
-
-
     function read_config(callback) {
         $.getJSON('config.json', {}, function(data) {
             app_name = data.app_name || app_name;
             img_root = data.img_root || img_root;
             markdown_root = data.markdown_root || markdown_root;
-            blog_base = '/' + app_name + '/' + markdown_root +'/';
-            console.log('---read config');
-            console.log(app_name + ' : ' + blog_base);
+            blog_base = '/' + app_name + '/' + markdown_root + '/';
             callback();
         }).fail(function(err) {
             alert('读取配置有误');
@@ -154,7 +145,6 @@
     }
 
     function main() {
-
         read_config(function() {
             //加载侧边菜单栏
             load('#sidebar-page', 'sidebar.md', true);
@@ -167,9 +157,6 @@
             }
             if (cur_md_path === '') {
                 load('#main-page', 'home.md');
-                console.log("load main~");
-                //多说评论,若想不在首页显示评论框 那么：取消这一句注释
-                //$('.ds-thread').removeClass('ds-thread');
             } else {
                 load('#main-page', cur_md_path);
             }
@@ -177,6 +164,5 @@
     }
 
     main();
-
-
+    
 })(jQuery);
