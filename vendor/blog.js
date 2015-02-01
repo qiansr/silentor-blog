@@ -2,6 +2,7 @@
     var app_name = '';
     var blog_base = '';
     var img_root = 'img';
+    var markdown_root = 'p';
     //当前请求的markdown文件
     var cur_md_path = '';
     /*是否是http:// 如果是，那么这是资源文件,如果否，说明这是要处理的a标签*/
@@ -142,7 +143,8 @@
         $.getJSON('config.json', {}, function(data) {
             app_name = data.app_name || app_name;
             img_root = data.img_root || img_root;
-            blog_base = '/' + app_name + '/p/';
+            markdown_root = data.markdown_root || markdown_root;
+            blog_base = '/' + app_name + '/' + markdown_root +'/';
             console.log('---read config');
             console.log(app_name + ' : ' + blog_base);
             callback();
