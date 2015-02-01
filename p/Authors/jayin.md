@@ -3,4 +3,4 @@ jayin
 
 #### projects
 
-- [ETips](__ROOT__/projects/ETips.md)
+- [ETips](__P__/projects/ETips.md)

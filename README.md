@@ -3,20 +3,37 @@ silentor
 >Be a silentor,just focus on marking your words down!
 
 开发缘由
-===
+--------
 第一次使用fritx同学的[silent](https://github.com/fritx/silent) 失败了，于是决定重复造下轮子
 所以，silentor是受silent的启发，代码简单容读。
 
-Features
-===
+特点
+----
 * markdown only ,让你专注文章本身
 * 无需后台,按照指定的地方写markdown就行了
 * Github CSS
 * 支持语法高亮
 * 友好的移动端支持
 
+目录结构
+--------
+```
+---silentor
+   |---img //图片根目录
+   |---p  //文章(markdown)根目录
+       |---home.md   //页面主页
+       |---sidebar.md //页面侧栏
+       |---footer.md //页面底部
+   |---vendor  // 库目录
+   |---404.md   //404页
+   |---config.json //配置
+   |---default_config.json // 默认配置,用于参考 
+   |---index.html //博客入口
+
+```
+
 使用指南
-======= 
+--------
 
 ### 第一步：配置根目录的config.json
 ```json
@@ -39,28 +56,45 @@ git push origin gh-pages
 see [Demo](http://meizhuo.github.io/silentor/)
 
 ### 设置图片
-我们约定在根目录下的img/下放置所有图片文件
+我们约定在根目录下的`img`下放置所有图片文件
 
-若markdown需要用到:
-```markdown
-![图片说明](./img/xxx.jpg)
+当然，你也可以在`config.json`配置:
+```json
+{
+    .....
+    "img_root" : "{you_img_root}"
+}
 ```
+
+若markdown需要用到图片:
+```markdown
+![图片说明](__IMG__/xxx.jpg)
+```
+
+**注意: `__IMG__`就是指代你配置的图片根目录**
 
 #### 文章的图片位置问题
 
-默认是：图片居中，如果想图片居左：preview
+默认是：图片居中，如果想图片居左：
 ```markdown
-![图片说明|left](./img/xxx.jpg)
+![图片说明|left](__IMG__/xxx.jpg)
 ```
 
 居右
 ```markdown
-![图片说明|right](./img/xxx.jpg)
+![图片说明|right](__IMG__/xxx.jpg)
 ```
 
 ### 在本文中引用其他目录的文章
 
 详情:参考这个[issue#1](https://github.com/Jayin/silentor/issues/1)
+
+自v1.5.2新增了一个常量`__P__`来表示markdown文件的根目录，默认是`p`，同样地，你也可以
+在`config.json`配置:
+
+```json
+"markdown_root":"p" 
+```
 
 例子:  
 ```markdown
@@ -73,12 +107,12 @@ see [Demo](http://meizhuo.github.io/silentor/)
 [其他目录文章标题](../App/other.md)
 
 //引用任意目录下other.md 
-[其他目录文章标题](__ROOT__/path/to/file/other.md) //推荐
+[其他目录文章标题](__P__/path/to/file/other.md) //推荐
 
 ```
 
 开发指南
-===
+--------
 
 ### 根目录下的404.md就是找不页面时显示的内容
 若有需要，可以改写里面的内容
