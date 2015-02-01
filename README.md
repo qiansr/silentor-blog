@@ -73,7 +73,7 @@ see [Demo](http://meizhuo.github.io/silentor/)
 [其他目录文章标题](../App/other.md)
 
 //引用任意目录下other.md 
-[其他目录文章标题](__ROOT__/path/to/file/other.md) //推荐
+[其他目录文章标题](__P__/path/to/file/other.md) //推荐
 
 ```
 

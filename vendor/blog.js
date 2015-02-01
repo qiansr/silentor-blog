@@ -78,9 +78,9 @@
                         } else {
                             new_url = url.slice(3, url.length);
                         }
-                    } else if (url.indexOf('__ROOT__') == 0) {
+                    } else if (url.indexOf('__P__') == 0) {
                         //文章根目录`p/`下
-                        new_url = url.replace('__ROOT__/', '');
+                        new_url = url.replace('__P__/', '');
                     } else {
                         //当前目录
                         new_url = new_url + url.replace('./', '');
