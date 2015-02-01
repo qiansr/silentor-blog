@@ -48,10 +48,11 @@
                     return hljs.highlightAuto(code).value;
                 }
             });
-            $(selector).html(marked(data));
+            var _selector = $(selector);
+            _selector.html(marked(data));
 
             //处理所有scr
-            $(selector).find('[href]').each(function() {
+            _selector.find('[href]').each(function() {
                 var $element = $(this);
                 var url = $element.attr('href');
 
@@ -93,7 +94,7 @@
                 $('title').text(mainTitle);
 
                 //图片位置
-                $.each($(selector).find('img'), function(index, item) {
+                $.each(_selector.find('img'), function(index, item) {
                     var alt = $(item).attr('alt') || '';
                     if (alt.indexOf('|left') != -1) {
                         $(item).addClass('img-left');
@@ -107,9 +108,9 @@
             //sidebar
             if (isSidebar) {
                 //round avatar
-                $(selector).find('img').first().addClass('avatar');
+                _selector.find('img').first().addClass('avatar');
                 //add animation in item
-                $.each($(selector).find('li'), function(index, item) {
+                $.each(_selector.find('li'), function(index, item) {
                     $(item).addClass('sidebar-item');
                 });
             }
