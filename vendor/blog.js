@@ -1,6 +1,7 @@
 (function($) {
     var app_name = '';
     var blog_base = '';
+    var img_root = 'img';
     //当前请求的markdown文件
     var cur_md_path = '';
     /*是否是http:// 如果是，那么这是资源文件,如果否，说明这是要处理的a标签*/
@@ -114,6 +115,13 @@
                     $(item).addClass('sidebar-item');
                 });
             }
+            //处理图片链接
+            $.each(_selector.find('img'),function(index,item){
+                $e = $(item);
+                if($e.attr('src').indexOf('__IMG__') == 0){
+                    $e.attr('src', $e.attr('src').replace('__IMG__',img_root));
+                }
+            });
 
         }).fail(function(err) {
             if (err.status === 404) {
@@ -133,6 +141,7 @@
     function read_config(callback) {
         $.getJSON('config.json', {}, function(data) {
             app_name = data.app_name || app_name;
+            img_root = data.img_root || img_root;
             blog_base = '/' + app_name + '/p/';
             console.log('---read config');
             console.log(app_name + ' : ' + blog_base);
