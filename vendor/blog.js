@@ -1,3 +1,9 @@
+/**
+ * blog.js - the core of silentor
+ * author: Jayin Ton
+ * version: 1.5.3
+ * License:Apache 2.0
+ */
 (function($) {
     var app_name = '';
     var blog_base = '';
