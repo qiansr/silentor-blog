@@ -142,8 +142,12 @@
         $.getJSON('config.json', {}, function(data) {
             app_name = data.app_name || app_name;
             img_root = data.img_root || img_root;
+            description = data.description || "";
+
             markdown_root = data.markdown_root || markdown_root;
             blog_base = '/' + app_name + '/' + markdown_root + '/';
+
+            $('meta[name=description]').first().attr('content',description);
             callback();
         }).fail(function(err) {
             alert('读取配置有误');
