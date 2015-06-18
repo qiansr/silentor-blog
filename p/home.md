@@ -1,19 +1,41 @@
-silentor
+silentor, a friendly fork of [silent](https://github.com/fritx/silent)
 ========
 >Be a silentor,just focus on marking your words down!
 
-开发缘由
---------
-第一次使用fritx同学的[silent](https://github.com/fritx/silent) 失败了，于是决定重复造下轮子
-所以，silentor是受silent的启发，代码简单容读。
-
 特点
 ----
+* 开箱即用
 * markdown only ,让你专注文章本身
-* 无需后台,按照指定的地方写markdown就行了
-* Github CSS
-* 支持语法高亮
 * 友好的移动端支持
+* 灵活的样式扩展
+
+教程目录
+---
+
+- 适用人群
+- 目录结构
+- 使用指南
+    - 开箱即用
+    - 配置config.json
+    - 创建gh-pages分支并 上传到Github
+    - 设置图片
+    - 文章的图片位置问题
+    - 在本文中引用其他目录的文章
+- 开发指南
+    - 根目录下的404.md就是找不页面时显示的内容
+    - 更换语法高亮css
+    - 网站标题
+    - 网站分析
+    - 大小写
+    - 全局的底部信息-footer
+
+-----
+
+适用人群
+------
+
+* 会使用git, 推荐[廖雪峰Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
+* 会使用Markdown, [Markdown语法简介](markdown-useage.md)
 
 目录结构
 --------
@@ -27,13 +49,18 @@ silentor
    |---vendor  // 库目录
    |---404.md   //404页
    |---config.json //配置
-   |---default_config.json // 默认配置,用于参考 
+   |---default_config.json // 默认配置,用于参考
    |---index.html //博客入口
 
 ```
 
-使用指南
---------
+# 使用指南
+
+### 开箱即用
+
+1. Fork 本项目
+2. clone 本项目
+
 
 ### 第一步：配置根目录的config.json
 ```json
@@ -43,11 +70,13 @@ silentor
 
 ```
 
+以`silentor`为例,此处应填写silentor
+
 ### 第二部步：创建gh-pages分支并 上传到Github
 ```shell
 git init
 git checkout -b gh-pages
-git add --all 
+git add --all
 git commit -m 'my website'
 git push origin gh-pages
 //然后输入你的github账号,密码
@@ -93,7 +122,7 @@ see [Demo](http://meizhuo.github.io/silentor/)
 在`config.json`配置:
 
 ```json
-"markdown_root":"p" 
+"markdown_root":"p"
 ```
 
 例子:  
@@ -106,13 +135,12 @@ see [Demo](http://meizhuo.github.io/silentor/)
 //引用上一级目录App目录下的other.md PS:不支持多次上级操作
 [其他目录文章标题](../App/other.md)
 
-//引用任意目录下other.md 
+//引用任意目录下other.md
 [其他目录文章标题](__P__/path/to/file/other.md) //推荐
 
 ```
 
-开发指南
---------
+# 开发指南
 
 ### 根目录下的404.md就是找不页面时显示的内容
 若有需要，可以改写里面的内容
@@ -187,7 +215,7 @@ function init() {
 ### 大小写
 github是有大小写敏感，大家一般遵循都小写的原则
 
-### 全局的底部信息-footer 
+### 全局的底部信息-footer
 
 我们知道有sidebar（侧栏）,main page(主页),可是有时候我们需要一个网站底部一些关于信息 ，这个`footer.md`就是干这事情，建议在p/目录下建立footer.md 文件来添加底部信息
 

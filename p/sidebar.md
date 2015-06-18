@@ -1,8 +1,8 @@
 ![Meizhuo logo](./img/favicon.ico)
 
-# [袂卓工作室](.)
+# [silentor](.)
 
-> 联袂追求卓越
+> Be a silentor,just focus on marking your words down!
 
 - [项目](projects/index.md)
 - [专业](profession.md)
