@@ -97,6 +97,9 @@ blockquote {
     top: -9999px;
     left: -9999px;
 }
+#main-page {
+  min-height: 620px;
+}
 #main-page-footer {
     text-align:  center;
     margin-top: 40px;
