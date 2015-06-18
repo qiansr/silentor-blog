@@ -119,13 +119,13 @@ blockquote {
     margin: 15px 0px 15px auto;
 }
 .avatar {
-   border-radius: 90px;
+   border-radius: 50%;
    padding: 3px;
 }
 .sidebar-item{
     transition:margin-left 0.5s;
-    -moz-transition:margin-left 0.5s;  
-    -webkit-transition:margin-left 0.5s;  
+    -moz-transition:margin-left 0.5s;
+    -webkit-transition:margin-left 0.5s;
     -o-transition:margin-left 0.5s;
 }
 .sidebar-item:hover{
@@ -154,7 +154,7 @@ blockquote {
     .sidebar img {
         display: none
     }
-  
+
 }
 @media (min-width: 990px) {
     .sidebar {
