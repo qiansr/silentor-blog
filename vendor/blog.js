@@ -35,6 +35,25 @@
                 return real_file_name.split('.')[0];
             }
         }
+        // resolve 路径
+    function resolvePath(from, to) {
+            if (from[from.length - 1] == '/') {
+                from = from.substring(0, from.length - 1);
+            }
+            var froms = from.split('/');
+            var tos = to.split('/');
+            if (tos[0] == '.') {
+                tos.splice(0, 1);
+            } else if (tos[0] == '..') {
+                froms.splice(froms.length - 1, 1);
+                tos.splice(0, 1);
+            } else if (tos[0].indexOf('http') != -1 || tos[0].indexOf('https') != -1) {
+                return to;
+            } else {
+                return froms.join('/') + "/" + tos.join('/');
+            }
+            return resolvePath(froms.join('/'), tos.join('/'));
+        }
         /**
          * @param selector 选择器
          * @param  file_path 文件路径
@@ -56,7 +75,7 @@
             var _selector = $(selector);
             _selector.html(marked(data));
 
-            //处理所有scr
+            //处理所有href
             _selector.find('[href]').each(function() {
                 var $element = $(this);
                 var url = $element.attr('href');
@@ -76,12 +95,8 @@
                     var new_url = getPageBase(cur_md_path);
                     //上一级目录
                     if (url.indexOf('../') == 0) {
-                        new_url = new_url.substring(0, new_url.length - 1);
-                        if (new_url.indexOf('/') != -1) {
-                            new_url = new_url.slice(0, new_url.lastIndexOf('/') + 1) + url.slice(3, url.length);
-                        } else {
-                            new_url = url.slice(3, url.length);
-                        }
+                        //处理相对路径
+                        new_url = resolvePath(getPageBase(cur_md_path), url);
                     } else if (url.indexOf('__P__') == 0) {
                         //文章根目录`p/`下
                         new_url = url.replace('__P__/', '');
@@ -124,6 +139,10 @@
                 $e = $(item);
                 if ($e.attr('src').indexOf('__IMG__') == 0) {
                     $e.attr('src', $e.attr('src').replace('__IMG__', img_root));
+                } else {
+                    //适配相对路径
+                    var path = resolvePath(getPageBase(p_url), $e.attr('src'));
+                    $e.attr('src', path);
                 }
             });
 
@@ -147,7 +166,7 @@
             markdown_root = data.markdown_root || markdown_root;
             blog_base = '/' + app_name + '/' + markdown_root + '/';
 
-            $('meta[name=description]').first().attr('content',description);
+            $('meta[name=description]').first().attr('content', description);
             callback();
         }).fail(function(err) {
             alert('读取配置有误');
@@ -166,7 +185,7 @@
                 cur_md_path = location.search.slice(1, location.search.length);
             }
             //部分服务器会在后面追加'/',例如：?a/b/cxx.md/
-            if(cur_md_path.charAt(cur_md_path.length - 1) === '/'){
+            if (cur_md_path.charAt(cur_md_path.length - 1) === '/') {
                 cur_md_path = cur_md_path.slice(0, location.search.length - 2);
             }
             if (cur_md_path === '' || !isMarkdownFile(cur_md_path)) {
@@ -178,5 +197,5 @@
     }
 
     main();
-    
+
 })(jQuery);
