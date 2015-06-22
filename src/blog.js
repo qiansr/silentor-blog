@@ -61,10 +61,10 @@
          * @param  baseUrl 基准url
          */
     function load(selector, file_path, isSidebar, baseUrl) {
-        baseUrl = baseUrl || blog_base;
-        isSidebar = isSidebar || false;
+        var baseUrl = baseUrl || blog_base;
+        var isSidebar = isSidebar || false;
 
-        p_url = baseUrl + file_path;
+        var p_url = baseUrl + file_path;
 
         $.get(p_url, function(data) {
             marked.setOptions({

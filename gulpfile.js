@@ -16,4 +16,8 @@ gulp.task('compress', function() {
     .pipe(gulp.dest(DEST));
 });
 
-gulp.task('default', ['minify-css', 'compress'])
+gulp.task('watch', ['minify-css', 'compress'], function(){
+    gulp.watch('src/*',['minify-css', 'compress'])        
+})
+
+gulp.task('default', ['watch'])
