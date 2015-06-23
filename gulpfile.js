@@ -3,7 +3,6 @@ var minifyCss = require('gulp-minify-css')
 var uglify = require('gulp-uglify')
 
 DEST = 'vendor';
-console.log(process.env);
 var IS_DEV = process.env || false;
 
 gulp.task('minify-css', function() {
