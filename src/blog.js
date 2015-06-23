@@ -5,6 +5,7 @@
  * License:Apache 2.0
  */
 (function($) {
+    'use strict';
     var app_name = '';
     var blog_base = '';
     var img_root = 'img';
@@ -136,7 +137,7 @@
             }
             //处理图片链接
             $.each(_selector.find('img'), function(index, item) {
-                $e = $(item);
+                var $e = $(item);
                 if ($e.attr('src').indexOf('__IMG__') == 0) {
                     $e.attr('src', $e.attr('src').replace('__IMG__', img_root));
                 } else {
@@ -161,7 +162,7 @@
         $.getJSON('config.json', {}, function(data) {
             app_name = data.app_name || app_name;
             img_root = data.img_root || img_root;
-            description = data.description || "";
+            var description = data.description || "";
 
             markdown_root = data.markdown_root || markdown_root;
             blog_base = '/' + app_name + '/' + markdown_root + '/';
