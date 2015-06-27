@@ -1,19 +1,45 @@
-silentor
+silentor, a friendly fork of [silent](https://github.com/fritx/silent)
 ========
->Be a silentor,just focus on marking your words down!
-
-开发缘由
---------
-第一次使用fritx同学的[silent](https://github.com/fritx/silent) 失败了，于是决定重复造下轮子
-所以，silentor是受silent的启发，代码简单容读。
+>Be a silentor, focus on writting your words down.
 
 特点
 ----
+* 开箱即用(Fork 本项目立马可以使用)
 * markdown only ,让你专注文章本身
-* 无需后台,按照指定的地方写markdown就行了
-* Github CSS
-* 支持语法高亮
 * 友好的移动端支持
+* 灵活的样式扩展
+
+教程目录
+---
+
+- 适用人群
+- 目录结构
+- 使用指南
+    - 开箱即用
+    - 配置config.json
+    - 创建gh-pages分支并 上传到Github
+    - 设置图片
+    - 文章的图片位置问题
+    - 在本文中引用其他目录的文章
+    - 404: 根目录下的404.md就是找不页面时显示的内容
+    - footer.md: 全局的底部信息
+- 开发指南
+    - 自定义样式
+    - 更换语法高亮css
+    - 网站标题
+    - 网站分析
+    - 大小写
+    - 配置评论框
+        - Disqus设置指南
+        - 多说设置指南
+
+-----
+
+适用人群
+------
+
+* 会使用git, 推荐[廖雪峰Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
+* 会使用Markdown, [Markdown语法简介](markdown-useage.md)
 
 目录结构
 --------
@@ -27,13 +53,18 @@ silentor
    |---vendor  // 库目录
    |---404.md   //404页
    |---config.json //配置
-   |---default_config.json // 默认配置,用于参考 
+   |---default_config.json // 默认配置,用于参考
    |---index.html //博客入口
 
 ```
 
-使用指南
---------
+# 使用指南
+
+### 开箱即用
+
+1. Fork 本项目(可以忽略下面的第一、二步)
+2. clone 本项目
+
 
 ### 第一步：配置根目录的config.json
 ```json
@@ -43,11 +74,13 @@ silentor
 
 ```
 
+以`silentor`为例,此处应填写silentor
+
 ### 第二部步：创建gh-pages分支并 上传到Github
 ```shell
 git init
 git checkout -b gh-pages
-git add --all 
+git add --all
 git commit -m 'my website'
 git push origin gh-pages
 //然后输入你的github账号,密码
@@ -89,39 +122,57 @@ see [Demo](http://meizhuo.github.io/silentor/)
 
 详情:参考这个[issue#1](https://github.com/Jayin/silentor/issues/1)
 
-自v1.5.2新增了一个常量`__P__`来表示markdown文件的根目录，默认是`p`，同样地，你也可以
-在`config.json`配置:
+自v1.5.2新增了一个常量`__P__`来表示markdown文件的根目录，默认是`p`，同样地，你也可以在`config.json`配置:
 
 ```json
-"markdown_root":"p" 
+"markdown_root":"p"
 ```
 
-例子:  
+例子:
 ```markdown
 
 //引用当前目录下的other.md
 [其他目录文章标题](other.md)    //推荐
 [其他目录文章标题](./other.md)
 
-//引用上一级目录App目录下的other.md PS:不支持多次上级操作
+//引用上一级目录App目录下的other.md
 [其他目录文章标题](../App/other.md)
 
-//引用任意目录下other.md 
+PS:支持多次上级操作，你可以自由地使用相对路径
+[其他目录文章标题](../..//App/other.md)
+
+//引用任意目录下other.md
 [其他目录文章标题](__P__/path/to/file/other.md) //推荐
 
 ```
 
-开发指南
---------
+### 404: 根目录下的404.md就是找不页面时显示的内容
 
-### 根目录下的404.md就是找不页面时显示的内容
 若有需要，可以改写里面的内容
 
-### 更换语法高亮css
+### footer.md: 全局的底部信息
+
+我们知道有sidebar（侧栏）,main page(主页),可是有时候我们需要一个网站底部一些关于信息 ，这个`footer.md`就是干这事情，建议在p/目录下建立footer.md 文件来添加底部信息
+
+
+# 开发指南
+
+### 自定义样式
+
+silentor提供了简单的样式，如果你不满足，可以自己添加/修改。
+
+注意: 并不推荐你直接修改核心部分的样式，而是推荐:
+
+1. 在目录`vendor`新建一个文件夹`custom/css`
+2. 在`vendor/custom/css`新建一个`my.css`
+3. 在`index.html`中引入
 ```html
-//引入在vendor/highlight/styles下
-<link rel="stylesheet" href="vendor/highlight/styles/github.css">
+    <link rel="stylesheet" href="vendor/custom/css/my.css">
 ```
+
+### 更换语法高亮css
+
+在[highlightjs.org](https://highlightjs.org/)中下载对应的css,然后替换`vendor/highlight/styles/main.css`的内容
 
 ### 网站标题
 
@@ -130,72 +181,25 @@ see [Demo](http://meizhuo.github.io/silentor/)
 
 
 ### 网站分析
-你可以在`index.html`中嵌入你的google an
 
+你可以在`index.html`中嵌入你的google analytics、百度分析
 
-### 加入社会化评论框
-**以多说为例**
-
-首先到`http://duoshuo.com/` 申请有账号
-然后进入后台获得通用评论框代码，放到index.html的`#main-page下`
-
-e.g:
-```html
-     <!-- main -->
-    <div class="main" id="main">
-        <div class="main-inner">
-            <div class="main-page markdown-body" id="main-page"></div>
-        </div>
-        <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
-        <!-- 多说评论框 end -->
-        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-        <script type="text/javascript">
-        var duoshuoQuery = {
-            short_name: "jayin"
-        };
-        (function() {
-            var ds = document.createElement('script');
-            ds.type = 'text/javascript';
-            ds.async = true;
-            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            ds.charset = 'UTF-8';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
-        </script>
-        <!-- 多说公共JS代码 end -->
-    </div>
-```
-
-**如果想在网站首页不显示评论,如何做？**
-```javascript
-//blog.js
-function init() {
-    read_config(function() {
-        load('#sidebar-page', 'sidebar.md', true);
-
-        if (cur_md_path === '') {
-            load('#main-page', 'home.md');
-            console.log("load main~");
-            //多说评论,若想不在首页显示评论框 那么：取消这一句注释
-            //$('.ds-thread').removeClass('ds-thread');
-        }
-    });
-}
-```
 
 ### 大小写
-github是有大小写敏感，大家一般遵循都小写的原则
 
-### 全局的底部信息-footer 
+github pages、linux下都是大小写敏感，开发时约定都使用小写
 
-我们知道有sidebar（侧栏）,main page(主页),可是有时候我们需要一个网站底部一些关于信息 ，这个`footer.md`就是干这事情，建议在p/目录下建立footer.md 文件来添加底部信息
+
+### 配置评论框
+
+- [Disqus设置指南](./docs/use-disqus/index.md)
+- [多说设置指南](./docs/use-duoshuo/index.md)
 
 
 License
 ===
     Copyright 2014 Jayin Ton
-    Copyright 2014 Meizhuo Lib
+    Copyright 2014 Fritx
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
