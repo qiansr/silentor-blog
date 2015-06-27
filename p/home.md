@@ -199,7 +199,7 @@ github pages、linux下都是大小写敏感，开发时约定都使用小写
 License
 ===
     Copyright 2014 Jayin Ton
-    Copyright 2014 Meizhuo Lib
+    Copyright 2014 Fritx
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
