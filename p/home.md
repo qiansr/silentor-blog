@@ -1,10 +1,10 @@
 silentor, a friendly fork of [silent](https://github.com/fritx/silent)
 ========
->Be a silentor,just focus on marking your words down!
+>Be a silentor, focus on writting your words down.
 
 特点
 ----
-* 开箱即用
+* 开箱即用(Fork 本项目立马可以使用)
 * markdown only ,让你专注文章本身
 * 友好的移动端支持
 * 灵活的样式扩展
@@ -21,13 +21,16 @@ silentor, a friendly fork of [silent](https://github.com/fritx/silent)
     - 设置图片
     - 文章的图片位置问题
     - 在本文中引用其他目录的文章
+    - 404: 根目录下的404.md就是找不页面时显示的内容
+    - footer.md: 全局的底部信息
 - 开发指南
-    - 根目录下的404.md就是找不页面时显示的内容
     - 更换语法高亮css
     - 网站标题
     - 网站分析
     - 大小写
-    - 全局的底部信息-footer
+    - 配置评论框
+        - Disqus设置指南
+        - 多说设置指南
 
 -----
 
@@ -58,7 +61,7 @@ silentor, a friendly fork of [silent](https://github.com/fritx/silent)
 
 ### 开箱即用
 
-1. Fork 本项目
+1. Fork 本项目(可以忽略下面的第一、二步)
 2. clone 本项目
 
 
@@ -118,38 +121,44 @@ see [Demo](http://meizhuo.github.io/silentor/)
 
 详情:参考这个[issue#1](https://github.com/Jayin/silentor/issues/1)
 
-自v1.5.2新增了一个常量`__P__`来表示markdown文件的根目录，默认是`p`，同样地，你也可以
-在`config.json`配置:
+自v1.5.2新增了一个常量`__P__`来表示markdown文件的根目录，默认是`p`，同样地，你也可以在`config.json`配置:
 
 ```json
 "markdown_root":"p"
 ```
 
-例子:  
+例子:
 ```markdown
 
 //引用当前目录下的other.md
 [其他目录文章标题](other.md)    //推荐
 [其他目录文章标题](./other.md)
 
-//引用上一级目录App目录下的other.md PS:不支持多次上级操作
+//引用上一级目录App目录下的other.md
 [其他目录文章标题](../App/other.md)
+
+PS:支持多次上级操作，你可以自由地使用相对路径
+[其他目录文章标题](../..//App/other.md)
 
 //引用任意目录下other.md
 [其他目录文章标题](__P__/path/to/file/other.md) //推荐
 
 ```
 
-# 开发指南
+### 404: 根目录下的404.md就是找不页面时显示的内容
 
-### 根目录下的404.md就是找不页面时显示的内容
 若有需要，可以改写里面的内容
 
+### footer.md: 全局的底部信息
+
+我们知道有sidebar（侧栏）,main page(主页),可是有时候我们需要一个网站底部一些关于信息 ，这个`footer.md`就是干这事情，建议在p/目录下建立footer.md 文件来添加底部信息
+
+
+# 开发指南
+
 ### 更换语法高亮css
-```html
-//引入在vendor/highlight/styles下
-<link rel="stylesheet" href="vendor/highlight/styles/github.css">
-```
+
+在[highlightjs.org](https://highlightjs.org/)中下载对应的css,然后替换`vendor/highlight/styles/main.css`的内容
 
 ### 网站标题
 
@@ -158,15 +167,19 @@ see [Demo](http://meizhuo.github.io/silentor/)
 
 
 ### 网站分析
-你可以在`index.html`中嵌入你的google an
+
+你可以在`index.html`中嵌入你的google analytics、百度分析
 
 
 ### 大小写
-github是有大小写敏感，大家一般遵循都小写的原则
 
-### 全局的底部信息-footer
+github pages、linux下都是大小写敏感，开发时约定都使用小写
 
-我们知道有sidebar（侧栏）,main page(主页),可是有时候我们需要一个网站底部一些关于信息 ，这个`footer.md`就是干这事情，建议在p/目录下建立footer.md 文件来添加底部信息
+
+### 配置评论框
+
+- [Disqus设置指南](./docs/use-disqus/index.md)
+- [多说设置指南](./docs/use-duoshuo/index.md)
 
 
 License

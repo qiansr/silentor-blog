@@ -2,7 +2,7 @@
 
 # [silentor](.)
 
-> Be a silentor,just focus on marking your words down!
+> Be a silentor, focus on writting your words down
 
 - [项目](projects/index.md)
 - [专业](profession.md)
