@@ -40,7 +40,7 @@ gulp.task('concat-js',['compress'], function(){
 });
 
 gulp.task('concat-css',['minify-css'], function(){
-    gulp.src(['vendor/highlight/styles/github.css',
+    gulp.src(['vendor/highlight/styles/main.css',
               'vendor/github-markdown.css',
               'vendor/blog.css'])
         .pipe(concat('core.css'))
