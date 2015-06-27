@@ -24,6 +24,7 @@ silentor, a friendly fork of [silent](https://github.com/fritx/silent)
     - 404: 根目录下的404.md就是找不页面时显示的内容
     - footer.md: 全局的底部信息
 - 开发指南
+    - 自定义样式
     - 更换语法高亮css
     - 网站标题
     - 网站分析
@@ -155,6 +156,19 @@ PS:支持多次上级操作，你可以自由地使用相对路径
 
 
 # 开发指南
+
+### 自定义样式
+
+silentor提供了简单的样式，如果你不满足，可以自己添加/修改。
+
+注意: 并不推荐你直接修改核心部分的样式，而是推荐:
+
+1. 在目录`vendor`新建一个文件夹`custom/css`
+2. 在`vendor/custom/css`新建一个`my.css`
+3. 在`index.html`中引入
+```html
+    <link rel="stylesheet" href="vendor/custom/css/my.css">
+```
 
 ### 更换语法高亮css
 
