@@ -13,6 +13,15 @@ silentor, a friendly fork of [silent](https://github.com/fritx/silent)
 
 [Usage & Documentation & DEMO](http://jayin.github.io/silentor/)
 
+Developement
+------------
+
+```
+npm install
+make server
+make dev
+```
+
 License
 ===
 
