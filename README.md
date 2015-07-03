@@ -18,7 +18,7 @@ Developement
 
 ```
 npm install
-make server
+make serve
 make dev
 ```
 
