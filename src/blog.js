@@ -36,6 +36,10 @@
                 return real_file_name.split('.')[0];
             }
         }
+    //Event Hook 
+    function hook(hook_name, data){
+        $(window).trigger(hook_name, data);
+    }
         // resolve 路径
     function resolvePath(from, to) {
             if (from[from.length - 1] == '/') {
@@ -147,6 +151,14 @@
                 }
             });
 
+            if (selector == '#sidebar-page'){
+                hook('loaded-sidebar-page');
+            }else if (selector == '#main-page'){
+                hook('loaded-main-page');
+            }else if (selector == '#main-page-footer'){
+                hook('loaded-main-page-footer')
+            }
+
         }).fail(function(err) {
             if (err.status === 404) {
                 if (file_path === 'footer.md') {
@@ -154,6 +166,10 @@
                     return;
                 }
                 load('#main-page', '404.md', false, '/' + app_name + '/');
+                hook('page-not-found', {
+                    selector: selector,
+                    path: file_path
+                })
             }
         });
     }
