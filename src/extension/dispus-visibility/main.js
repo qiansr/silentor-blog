@@ -45,5 +45,15 @@
 
     $(window).on('page-not-found', function(evt, data){
         // console.log('page-not-found')
-    })
+    });
+
+    $(window).on('before-load-sidebar-page', function(evt, data){
+        // console.log('before-load-sidebar-page')
+    });
+    $(window).on('before-load-main-page', function(evt, data){
+        // console.log('before-load-main-page')
+    });
+    $(window).on('before-load-main-page-footer', function(evt, data){
+        // console.log('before-load-main-page-footer')
+    });
 })(jQuery);

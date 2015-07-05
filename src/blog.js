@@ -193,7 +193,10 @@
     function main() {
         read_config(function() {
             //加载侧边菜单栏
+            hook('before-load-sidebar-page');
             load('#sidebar-page', 'sidebar.md', true);
+            //加载内容页页脚
+            hook('before-load-main-page-footer');
             load('#main-page-footer', 'footer.md');
             //加载主内容页
             if (location.search.indexOf('&') !== -1) {
@@ -206,8 +209,10 @@
                 cur_md_path = cur_md_path.slice(0, location.search.length - 2);
             }
             if (cur_md_path === '' || !isMarkdownFile(cur_md_path)) {
+                hook('before-load-main-page');
                 load('#main-page', 'home.md');
             } else {
+                hook('before-load-main-page');
                 load('#main-page', cur_md_path);
             }
         });
