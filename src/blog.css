@@ -80,6 +80,7 @@ blockquote {
 }
 
 .sidebar-inner {
+    height: 100%;
     padding: 2% 5%;
 }
 
@@ -100,7 +101,7 @@ blockquote {
 }
 
 .sidebar blockquote {
-    color: #999;
+    color: #FFF;
 }
 
 .sidebar img {
@@ -168,6 +169,7 @@ blockquote {
     }
     .sidebar-inner {
         padding: 2% 10%;
+        height: 50%;
     }
     .main-inner {
         padding-left: 5%;
