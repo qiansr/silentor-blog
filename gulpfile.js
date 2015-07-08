@@ -7,7 +7,7 @@ DEST = 'vendor';
 var IS_DEV = process.env.DEV || false;
 
 gulp.task('copy', function(){
-    gulp.src('src/**/*.+(md|gif)')
+    gulp.src('src/**/*.+(md|gif|png|jpg)')
         .pipe(gulp.dest(DEST))
 });
 
