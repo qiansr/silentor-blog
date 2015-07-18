@@ -4,7 +4,8 @@
     var white_list = [
         '', //首页
         'home.md',
-        'about.md'
+        'about.md',
+        'reame.md'
     ]
 
     var isIndexPage = function(){
