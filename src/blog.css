@@ -77,9 +77,11 @@ blockquote {
 .sidebar {
     color: #fff;
     background-color: #2a2a2a;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
 }
 
 .sidebar-inner {
+    height: 100%;
     padding: 2% 5%;
 }
 
@@ -100,7 +102,7 @@ blockquote {
 }
 
 .sidebar blockquote {
-    color: #999;
+    color: #FFF;
 }
 
 .sidebar img {
@@ -130,6 +132,7 @@ blockquote {
     border-top: 1px solid #eee;
     color: #777;
     font-size: 14px;
+    min-height: 0px;
 }
 
 .img-left {
@@ -168,6 +171,7 @@ blockquote {
     }
     .sidebar-inner {
         padding: 2% 10%;
+        height: 50%;
     }
     .main-inner {
         padding-left: 5%;

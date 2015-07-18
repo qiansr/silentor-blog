@@ -1,6 +1,6 @@
 ![logo](./img/favicon.ico) 
 
-silentor, a friendly fork of [silent](https://github.com/fritx/silent)
+[silentor](https://github.com/Jayin/silentor), a friendly fork of [silent](https://github.com/fritx/silent)
 ========
 > Be a silentor, focus on writting your words down.
 
@@ -12,6 +12,15 @@ silentor, a friendly fork of [silent](https://github.com/fritx/silent)
 * 灵活的样式扩展，[Extension](./vendor/extension/)
 
 [Usage & Documentation & DEMO](http://jayin.github.io/silentor/)
+
+Developement
+------------
+
+```
+npm install
+make serve
+make dev
+```
 
 License
 ===
